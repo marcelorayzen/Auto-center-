@@ -1,13 +1,13 @@
-name: CI
+name: Checks
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
+    branches: [ main ]
+  push:
     branches: [ main ]
 
 jobs:
-  build-frontend:
+  typecheck-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,6 +17,8 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm ci
+      - name: Typecheck (tsc)
+        run: npx tsc --noEmit
       - name: Build frontend
         run: npm run build
   server-check:
@@ -31,7 +33,7 @@ jobs:
         run: |
           cd server
           npm ci
-      - name: Generate Prisma client
+      - name: Prisma generate
         run: |
           cd server
           npx prisma generate --schema=prisma/schema.prisma
