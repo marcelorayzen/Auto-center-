@@ -1,4 +1,23 @@
-# Auto Center Christo Car
+🔧 Auto-Center Gestão
+
+Sistema desenvolvido em TypeScript para gerenciamento de oficinas automotivas, incluindo ordens de serviço, clientes e estoque.
+
+🚗 Funcionalidades
+
+Cadastro e gerenciamento de clientes
+Emissão e controle de ordens de serviço
+Estoque de peças
+Relatórios financeiros
+Autenticação JWT
+API REST própria
+
+🧰 Tecnologias
+
+TypeScript
+Node.js / Express
+React (se houver front-end)
+JWT Auth
+Banco de dados SQL / Firestore (dependendo da versão)
 
 Repositório com o frontend React (Vite + TypeScript) e um backend leve em Express + Prisma (SQLite) para desenvolvimento local.
 
