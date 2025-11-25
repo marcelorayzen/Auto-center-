@@ -1,0 +1,76 @@
+// Prisma schema for local SQLite development
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+}
+
+model Customer {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String?
+  email     String?
+  vehicles  Vehicle[]
+}
+
+model Vehicle {
+  id          Int     @id @default(autoincrement())
+  plate       String  @unique
+  model       String?
+  color       String?
+  customer    Customer @relation(fields: [customerId], references: [id])
+  customerId  Int
+  serviceOrders ServiceOrder[]
+}
+
+model ServiceOrder {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  status      String   @default("open")
+  price       Float?   
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  vehicle     Vehicle  @relation(fields: [vehicleId], references: [id])
+  vehicleId   Int
+}
+
+model InventoryItem {
+  id          Int     @id @default(autoincrement())
+  name        String
+  sku         String? @unique
+  quantity    Int     @default(0)
+  unitPrice   Float?  
+}
+
+model Transaction {
+  id        Int      @id @default(autoincrement())
+  type      String
+  amount    Float
+  note      String?
+  createdAt DateTime @default(now())
+}
+
+model WashRecord {
+  id             Int      @id @default(autoincrement())
+  plate          String
+  washServiceId  Int
+  washServiceName String
+  employeeId     Int?
+  employeeName   String?
+  value          Float
+  completed      Boolean  @default(false)
+  createdAt      DateTime @default(now())
+  completedAt    DateTime?
+}

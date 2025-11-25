@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@christocar.local",
+      "role": "admin"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "João Silva",
+      "phone": "11999990000",
+      "email": "joao@example.com"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "plate": "ABC1234",
+      "model": "VW Gol",
+      "color": "Branco",
+      "customerId": 1
+    }
+  ],
+  "serviceOrders": [
+    {
+      "id": 1,
+      "title": "Troca de óleo",
+      "description": "Trocar óleo e filtro",
+      "price": 150,
+      "vehicleId": 1,
+      "status": "open",
+      "createdAt": "2025-01-01T10:00:00.000Z",
+      "updatedAt": "2025-01-01T10:00:00.000Z"
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "name": "Óleo 5W-30",
+      "sku": "OLEO-5W30",
+      "quantity": 10,
+      "unitPrice": 45
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "type": "sale",
+      "amount": 150,
+      "note": "Pagamento troca de óleo",
+      "createdAt": "2025-01-01T10:10:00.000Z"
+    }
+  ],
+  "washes": []
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Auto Center Christo Car",
+  "description": "Sistema de gestão completo para oficina mecânica e lava-rápido, incluindo controle de OS, estoque, financeiro e assistente IA."
+  ,
+  "icon": "/favicon.ico",
+  "manifest": "/site.webmanifest"
+}
